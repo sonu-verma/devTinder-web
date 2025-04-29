@@ -7,7 +7,8 @@ const userSlice = createSlice({
         userData: (state, action) => {
             return action.payload
         },
-        clearUserData: (state, action) => {
+        clearUserData: () => {
+            document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             return null
         }
     }

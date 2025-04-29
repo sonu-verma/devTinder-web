@@ -1,14 +1,17 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { clearUserData } from '../utils/userSlice'
 
 const Navbar = ({ isLoggedIn }) => {
 
     const user = useSelector( (store) => store.user)
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
     const handleLogout  = () => {
         dispatch(clearUserData())
+        return navigate('/login')
     }
 
     return (

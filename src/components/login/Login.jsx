@@ -48,15 +48,17 @@ const Login = () => {
         if (json.statusCode === 200) {
             document.cookie = `token=${json.token}; path=/; secure; SameSite=Strict`;
             dispatch(userData(json.user));
+            return navigate('/');
         }
 
         if (json.statusCode === 401) {
-            console.log("Login Failed: ", json);
-            setEmailError(json.message);
+            console.log("Login Failed: ", json.error);
+            setPasswordError(json.error);
         }
         
-        return navigate('/');
       }catch (error) {
+        console.log("Catch Error: ", error);
+        setPasswordError(error.error);
         console.log("Error: ", error);
       } 
     }
