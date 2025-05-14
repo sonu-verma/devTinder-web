@@ -44,14 +44,15 @@ const Login = () => {
         });
 
         const json = await response.json();
-    
-        if (json.statusCode === 200) {
-            document.cookie = `token=${json.token}; path=/; secure; SameSite=Strict`;
-            dispatch(userData(json.user));
+        console.log("Response: ", json.data.user);
+        console.log("Response: ", json.data.token);
+        if (json.status === "success") {
+            document.cookie = `token=${json.data.token}; path=/; secure; SameSite=Strict`;
+            dispatch(userData(json.data.user));
             return navigate('/');
         }
 
-        if (json.statusCode === 401) {
+        if (json.status !==  "success") {
             console.log("Login Failed: ", json.error);
             setPasswordError(json.error);
         }

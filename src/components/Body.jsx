@@ -30,22 +30,23 @@ const Body = () => {
       if(token){
         token = token.split('=')[1];
       }
+
       const response = await fetch(API_URL + "user", {
           method: 'GET',
           headers: {
             'Content-type': 'application/json',
             'Authorization': `Bearer ${token}`,
-        },
+          },
       });    
       const json = await response.json()
       
-       if (json?.statusCode === 200) {
-            document.cookie = `token=${json.token}; path=/; secure; SameSite=Strict`;
-            dispatch(userData(json.user));
+       if (json?.status === 'success') {
+            document.cookie = `token=${token}; path=/; secure; SameSite=Strict`;
+            dispatch(userData(json.data.user));
             setIsLoggedIn(true);
         }
 
-        if (json?.statusCode === 401) {
+        if (json?.status !== 'success') {
             return navigate('/login');
         }
         
@@ -56,26 +57,26 @@ const Body = () => {
   }
 
 
-  useEffect( () => {
-    if(!user) {
-      fetchUser()
-    } 
-  },[])
 
   
   useEffect( () => {
-    let token = getCookie('token');
-  
-    if(token){
-      setIsLoggedIn(true);
-    }
+      if(!user) {
+        fetchUser()
+      } 
 
-    if(!token){
-      setIsLoggedIn(false);
-      return navigate('/login')
-    }
+      let token = getCookie('token');
+    
 
-  },[location.pathname, navigate])
+      if(token){
+        setIsLoggedIn(true);
+      }
+
+      if(!token){
+        setIsLoggedIn(false);
+        return navigate('/login')
+      }
+
+  }, [location.pathname, navigate])
 
   return <>
     <Navbar isLoggedIn={isLoggedIn} />

@@ -6,3 +6,10 @@ export function getCookie(name) {
   
     return cookieValue || null;
 }
+
+export const convertDate = (createDate) => {
+    const date = new Date(createDate);
+    return date.toLocaleDateString('en-GB', {
+      day: '2-digit', month: 'short', year: 'numeric'
+    }).replace(/ /g, '-');
+}

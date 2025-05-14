@@ -8,7 +8,7 @@ const Navbar = ({ isLoggedIn }) => {
     const user = useSelector( (store) => store.user)
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+
     const handleLogout  = () => {
         dispatch(clearUserData())
         return navigate('/login')
@@ -17,7 +17,7 @@ const Navbar = ({ isLoggedIn }) => {
     return (
         <div className="navbar bg-base-100 shadow-sm px-8 bg-base-200">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <Link to="/" className="btn btn-ghost text-xl">Sport Mania</Link>
             </div>
             <div className="flex gap-4">
                 <div className="dropdown dropdown-end">
@@ -48,7 +48,8 @@ const Navbar = ({ isLoggedIn }) => {
                                     <img
                                         className="rounded-full"
                                         alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                        src={user?.profile ? user?.profile : "https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp" }
+                                     />
                                 </div>
                                 <span>{ user?.name }</span>
                             </div>
@@ -61,7 +62,7 @@ const Navbar = ({ isLoggedIn }) => {
                                     <span className="badge">New</span>
                                 </Link>
                                 </li>
-                                <li><a>Settings</a></li>
+                                <li><Link to="/teams">My Teams</Link></li>
                                 <li><a onClick={ handleLogout }>Logout</a></li>
                             </ul>
                     </div>
@@ -74,7 +75,7 @@ const Navbar = ({ isLoggedIn }) => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Homepage</a></li>
+                        <li><Link to="/" >Homepage</Link></li>
                         <li><a>Portfolio</a></li>
                         <li><a>About</a></li>
                     </ul>
