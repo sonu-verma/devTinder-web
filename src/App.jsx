@@ -11,6 +11,11 @@ import UpdateProfile from "./components/profile/UpdateProfile"
 import Teams from "./components/teams/Teams"
 import TeamCreate from "./components/teams/TeamCreate"
 import TeamUpdate from "./components/teams/TeamUpdate"
+import TeamConnection from "./components/connections/TeamConnection"
+import MyConnection from "./components/connections/MyConnections"
+import MyRequest from "./components/connections/MyRequest"
+import Home from "./components/home/Home"
+import TurfDetailPage from "./components/turf/TurfDetailPage"
 
 function App() {
 
@@ -20,6 +25,7 @@ function App() {
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<Body />}>
+            <Route index element={<Home />} />
             <Route path="/me" element={<Profile /> } />
             <Route path="/me/update" element={<UpdateProfile /> } />
             <Route path="/login" element={<Login /> } />
@@ -29,6 +35,12 @@ function App() {
             <Route path="/team/update/:teamId" element={<TeamUpdate />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/connections" element={<TeamConnection />} />
+            <Route path="/my-connections" element={<MyConnection />} />
+            <Route path="/my-request" element={<MyRequest />} />
+
+            <Route path='/turf/:slug' element={<TurfDetailPage />} />
+
             <Route path="/*" element={<Error />} />
           </Route>
         </Routes>

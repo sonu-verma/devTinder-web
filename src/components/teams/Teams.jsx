@@ -36,11 +36,7 @@ const Teams = () => {
             <h1 className='flex justify-center my-4 font-bold text-5xl'>Teams</h1>
             <Link to="/team/create" className='flex justify-center bg-blue-400 text-white p-2 rounded-xl mr-5'>Add Team</Link>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-10'>
-            {
-                  
-            }
-            
+        <div className='grid grid-cols-1 gap-8 p-10 w-3/4 mx-auto'>
             {
                 teams?.map( (team) => {
                     return <TeamCard key={team.id} team={team} />

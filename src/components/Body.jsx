@@ -57,8 +57,6 @@ const Body = () => {
   }
 
 
-
-  
   useEffect( () => {
       if(!user) {
         fetchUser()
@@ -80,7 +78,7 @@ const Body = () => {
 
   return <>
     <Navbar isLoggedIn={isLoggedIn} />
-    <Outlet />
+      <Outlet />
     <Footer />
   </>
 }
