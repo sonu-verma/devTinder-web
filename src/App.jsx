@@ -16,6 +16,7 @@ import MyConnection from "./components/connections/MyConnections"
 import MyRequest from "./components/connections/MyRequest"
 import Home from "./components/home/Home"
 import TurfDetailPage from "./components/turf/TurfDetailPage"
+import Dashboard from "./components/dashboard/Dashboard"
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<Body />}>
-            <Route index element={<Home />} />
+            <Route index element={<Dashboard />} />
             <Route path="/me" element={<Profile /> } />
             <Route path="/me/update" element={<UpdateProfile /> } />
             <Route path="/login" element={<Login /> } />
