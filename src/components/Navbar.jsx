@@ -77,7 +77,7 @@ const Navbar = ({ isLoggedIn }) => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><Link to="/" >Homepage</Link></li>
+                        <li><Link to="/turfs" >Turfs</Link></li>
                         <li><Link to="/connections">Connections</Link></li>
                         <li><a>About</a></li>
                     </ul>

@@ -39,6 +39,7 @@ function App() {
             <Route path="/connections" element={<TeamConnection />} />
             <Route path="/my-connections" element={<MyConnection />} />
             <Route path="/my-request" element={<MyRequest />} />
+            <Route path="/turfs" element={<Home />} />
 
             <Route path='/turf/:slug' element={<TurfDetailPage />} />
 
