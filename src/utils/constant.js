@@ -1,4 +1,4 @@
-export const API_URL = "http://localhost/creatimatix/inhouse/creatimatixApp/backend/api/";
+export const API_URL = "https://khelwell.com/backend/api/";
 
 export const sportIcons = { "Football" :"https://hudle.in/icons/Football.svg",
     "Cricket" :"https://media.hudle.in/sports/24/photo",

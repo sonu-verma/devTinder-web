@@ -9,8 +9,8 @@ const Dashboard = () => {
   const user = useSelector(store => store.user)
 
 return <>
-    <div className='grid  grid-flow-col grid-cols-4 gap-4 justify-center p-10 '>
-        <div className='bg-gray-200 mt-10'>
+    <div className='lg:grid lg:grid-flow-col grid-flow-row  lg:grid-cols-4 gap-4 justify-center p-10 '>
+        <div className='bg-gray-200 mt-10 lg:h-svh h-[5d00px] w-full'>
                 <img
                         className="rounded-full text-center w-1/4 m-auto -mt-10 "
                         alt="Tailwind CSS Navbar component"
@@ -40,7 +40,7 @@ return <>
                 </div>
                 <p className='text-left py-2 mx-12 font-bold'>Your Activity Logs &gt; </p>
         </div>
-        <div className='col-span-2 p-2'>
+        <div className='col-span-2 lg:p-2 lg:overflow-y-scroll h-dvh my-10 lg:my-0'>
             {
                 ["Prashant", "Vishal", "Alpesh", "Ashu"].map((val, index) => 
                     <PostCard
@@ -54,7 +54,7 @@ return <>
                 )
             }
         </div>
-        <div className='bg-gray-200  p-4'>
+        <div className='bg-gray-200  p-4 hidden lg:block h-svh'>
             <Sponsored />
             <SuggestedConnections />
         </div>
